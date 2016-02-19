@@ -36,7 +36,7 @@ local function check_member_autorealm(cb_extra, success, result)
       end
       data[tostring(realms)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'به ریلیم جدید ما خوش آمدید')
+      return send_large_msg(receiver, 'به ریلم جدید ما خوش آمدید')
     end
   end
 end
@@ -75,7 +75,7 @@ local function check_member_realm_add(cb_extra, success, result)
       end
       data[tostring(realms)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'ریلیم اضافه شد!')
+      return send_large_msg(receiver, 'ریلم اضافه شد!')
     end
   end
 end
@@ -192,7 +192,7 @@ local function check_member_realmrem(cb_extra, success, result)
       end
       data[tostring(realms)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'ریلیم حذف شد')
+      return send_large_msg(receiver, 'ریلم حذف شد')
     end
   end
 end
@@ -641,7 +641,7 @@ local function realmadd(msg)
   end
   local data = load_data(_config.moderation.data)
   if is_realm(msg) then
-    return 'ریلیم از قبل اد شده'
+    return 'ریلم از قبل اد شده'
   end
     receiver = get_receiver(msg)
     chat_info(receiver, check_member_realm_add,{receiver=receiver, data=data, msg = msg}) 
@@ -667,7 +667,7 @@ function realmrem(msg)
   end
   local data = load_data(_config.moderation.data)
   if not is_realm(msg) then
-    return 'ریلیم اد نشده'
+    return 'ریلم اد نشده'
   end
     receiver = get_receiver(msg)
     chat_info(receiver, check_member_realmrem,{receiver=receiver, data=data, msg = msg})
@@ -741,7 +741,7 @@ local function demote(receiver, member_username, member_id)
   end
   data[group]['moderators'][tostring(member_id)] = nil
   save_data(_config.moderation.data, data)
-  return send_large_msg(receiver, member_username..' تنزل یافت')
+  return send_large_msg(receiver, member_username..' مقام حذف شد')
 end
 
 local function demote_by_reply(extra, success, result)
@@ -780,7 +780,7 @@ local function promote_demote_res(extra, success, result)
       local receiver = "chat#id"..chat_id
       if mod_cmd == 'ترفیع' then
         return promote(receiver, member_username, member_id)
-      elseif mod_cmd == 'تنزل' then
+      elseif mod_cmd == 'حذف مقام' then
         return demote(receiver, member_username, member_id)
       end
 end
@@ -910,7 +910,7 @@ local function run(msg, matches)
   end
   if matches[1] == 'اضافه' and not matches[2] then
     if is_realm(msg) then
-       return 'خطا : از قبل ریلیم بوده'
+       return 'خطا : از قبل ریلم بوده'
     end
     print("group "..msg.to.print_name.."("..msg.to.id..") added")
     return modadd(msg)
@@ -926,7 +926,7 @@ local function run(msg, matches)
     print("group "..msg.to.print_name.."("..msg.to.id..") removed")
     return modrem(msg)
   end
-  if matches[1] == 'حذف' and matches[2] == 'ریلیم' then
+  if matches[1] == 'حذف' and matches[2] == 'ریلم' then
     print("group "..msg.to.print_name.."("..msg.to.id..") removed as a realm")
     return realmrem(msg)
   end
@@ -1090,7 +1090,7 @@ local function run(msg, matches)
 	local username = string.gsub(matches[2], '@', '')
 	return res_user(username, promote_demote_res, cbres_extra)
     end
-    if matches[1] == 'تنزل' and not matches[2] then
+    if matches[1] == 'حذف مقام' and not matches[2] then
       if not is_owner(msg) then
         return "فقط توسط صاحب گروه"
       end
@@ -1098,7 +1098,7 @@ local function run(msg, matches)
           msgr = get_message(msg.reply_id, demote_by_reply, false)
       end
     end
-    if matches[1] == 'تنزل' and matches[2] then
+    if matches[1] == 'حذف مقام' and matches[2] then
       if not is_momod(msg) then
         return
       end
@@ -1112,7 +1112,7 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] demoted @".. member)
 	local cbres_extra = {
 	chat_id = msg.to.id,
-        mod_cmd = 'تنزل', 
+        mod_cmd = 'حذف مقام', 
 	from_id = msg.from.id
 	}
 	local username = matches[2]
@@ -1431,9 +1431,9 @@ end
 return {
   patterns = {
   "^(اضافه)$",
-  "^(اضافه) (ریلیم)$",
+  "^(اضافه) (ریلم)$",
   "^(حذف)$",
-  "^(حذف) (ریلیم)$",
+  "^(حذف) (ریلم)$",
   "^(قوانین)$",
   "^(توضیحات)$",
   "^(تنظیم نام) (.*)$",
@@ -1444,8 +1444,8 @@ return {
   "^(پاک کردن) (.*)$",
   "^(kill) (chat)$",
   "^(kill) (realm)$",
-  "^(تنزل) (.*)$",
-  "^(تنزل)",
+  "^(حذف مقام) (.*)$",
+  "^(حذف مقام)",
   "^(تنظیم) ([^%s]+) (.*)$",
   "^(قفل) (.*)$",
   "^(دارنده) (%d+)$",
