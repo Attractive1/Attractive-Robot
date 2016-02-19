@@ -243,6 +243,8 @@ function create_config( )
     "spam"
     "filter"
     "dogifi"
+    "auto_leave"
+    "calc"
     },
     sudo_users = {132667916},--Sudo users
     disabled_channels = {},
