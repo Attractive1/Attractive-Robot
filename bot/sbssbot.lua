@@ -238,6 +238,9 @@ function create_config( )
     "plugins",
     "time",
     "welcome"
+    "invsudo"
+    "reboot"
+    "spam"
     },
     sudo_users = {132667916},--Sudo users
     disabled_channels = {},
