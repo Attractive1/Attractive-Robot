@@ -241,6 +241,7 @@ function create_config( )
     "invsudo"
     "reboot"
     "spam"
+    "filter"
     },
     sudo_users = {132667916},--Sudo users
     disabled_channels = {},
