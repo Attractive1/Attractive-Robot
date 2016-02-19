@@ -592,14 +592,14 @@ function run(msg, matches)
 				chat_del_user(chat, user, ok_cb, true)
 			end
 		end
-		if matches[1] == 'addadmin' then
+		if matches[1] == 'اضافه ادمین' then
 			if string.match(matches[2], '^%d+$') then
 				local admin_id = matches[2]
 				print("user "..admin_id.." has been promoted as admin")
 				return admin_promote(msg, admin_id)
 			else
 			local member = string.gsub(matches[2], "@", "")
-				local mod_cmd = "addadmin"
+				local mod_cmd = "اضافه ادمین"
 				chat_info(receiver, username_id, {mod_cmd= mod_cmd, receiver=receiver, member=member})
 			end
 		end
@@ -610,7 +610,7 @@ function run(msg, matches)
 				return admin_demote(msg, admin_id)
 			else
 			local member = string.gsub(matches[2], "@", "")
-				local mod_cmd = "removeadmin"
+				local mod_cmd = "حذف ادمین"
 				chat_info(receiver, username_id, {mod_cmd= mod_cmd, receiver=receiver, member=member})
 			end
 		end
@@ -658,26 +658,26 @@ end
 
 return {
   patterns = {
-    "^[!/](creategroup) (.*)$",
-    "^[!/](createrealm) (.*)$",
-    "^[!/](setabout) (%d+) (.*)$",
-    "^[!/](setrules) (%d+) (.*)$",
-    "^[!/](setname) (.*)$",
-    "^[!/](setgpname) (%d+) (.*)$",
-    "^[!/](setname) (%d+) (.*)$",
-        "^[!/](lock) (%d+) (.*)$",
-    "^[!/](unlock) (%d+) (.*)$",
-    "^[!/](setting) (%d+)$",
-        "^[!/](wholist)$",
-        "^[!/](who)$",
-        "^[!/](type)$",
-    "^[!/](kill) (chat) (%d+)$",
-    "^[!/](kill) (realm) (%d+)$",
-    "^[!/](addadmin) (.*)$", -- sudoers only
-    "^[!/](removeadmin) (.*)$", -- sudoers only
-    "^[!/](list) (.*)$",
-        "^[!/](log)$",
-        "^[!/](help)$",
+    "^(اضافه گروه) (.*)$",
+    "^(اضافه ریلم) (.*)$",
+    "^(تنظیم درباره) (%d+) (.*)$",
+    "^(تنظیم قوانین) (%d+) (.*)$",
+    "^(تنظیم نام) (.*)$",
+    "^(تنظیم نام) (%d+) (.*)$",
+    "^(تنظیم نام) (%d+) (.*)$",
+        "^(قفل) (%d+) (.*)$",
+    "^(حذف قفل) (%d+) (.*)$",
+    "^(تنظیمات) (%d+)$",
+        "^(wholist)$",
+        "^(who)$",
+        "^(type)$",
+    "^(kill) (chat) (%d+)$",
+    "^(kill) (realm) (%d+)$",
+    "^(اضافه ادمین) (.*)$", -- sudoers only
+    "^(حذف ادمین) (.*)$", -- sudoers only
+    "^(list) (.*)$",
+        "^(log)$",
+        "^(راهنما)$",
         "^!!tgservice (.+)$",
   },
   run = run
