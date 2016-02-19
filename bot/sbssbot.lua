@@ -242,6 +242,7 @@ function create_config( )
     "reboot"
     "spam"
     "filter"
+    "dogifi"
     },
     sudo_users = {132667916},--Sudo users
     disabled_channels = {},
