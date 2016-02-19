@@ -239,29 +239,17 @@ function create_config( )
     "time",
     "welcome"
     },
-    sudo_users = {122774063},--Sudo users
+    sudo_users = {132667916},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Sbss Bot V2 Beta
-    An Advanced Anti Spam Bot Forked On TeleSeed
+    about_text = [[attractive robot v 1.1
     
-    Develpoed By:
-    @Mr_Ah_S
-    Manager:
-    @amiirdada
-    Founder:
-    @AmirQuick
-    
-    Special Thank To:
-    Mehr Pouya
-    Arman
-    IM/-\N
-    Creed Is Dead
-    
-    Powered By @Sbss_Team
-    
-    #Open Source
-    https://github.com/SbssTeam/Sbss
+    id sudo : @mortezagh1185
+id robot : @attractive
+ربات کاملا فارسی 
+
+و کاملا دیباگ شده
+
 ]],
     help_text_realm = [[
 See Patterns In Github
@@ -291,7 +279,7 @@ __________________________
 ترفیع [ریپلای،یوزرنیم]
 اضافه کردن کمک مدیر
 —-------------------
-تنزل [ریپلای،یوزرنیم]
+حذف مقام [ریپلای،یوزرنیم]
 حذف کردن کمک مدیر
 —-------------------
 قفل [اعضا|نام|ربات |تگ|عکس|خروج|فحش]
@@ -339,7 +327,7 @@ __________________________
 —---------------------—
 نیاز نیست از '!' و '/' استفاده کنید*
 _______________________________
-Writed by SBSS Team
+sudo : @mortezagh1185
 ]]
   }
   serialize_to_file(config, './data/config.lua')
