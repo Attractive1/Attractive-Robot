@@ -1,4 +1,5 @@
-#SBSS Bot
+#attractive
+#زبات جذاب
 
 * **تمامی پلاگین ها فارسی میباشند**
 
@@ -72,4 +73,4 @@
 
 #Wiki Soon...
 
-#Powered By [@SBSS_Team](telegram.me/Sbss_Team)
+#Powered By [@mortezagh1185]
